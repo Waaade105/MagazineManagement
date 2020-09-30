@@ -25,7 +25,7 @@ namespace MagazineManagement
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            //services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddSingleton<IProductRepository, MockProductRepository>();
         }
 

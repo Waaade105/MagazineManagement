@@ -13,10 +13,10 @@ namespace MagazineManagement.Models
         {
             _productsList = new List<Product>()
             {
-                new Product() {Id = 1, Name = "green tea", Category = "drinks", Value = 1.2, Quantity = 112},
-                new Product() {Id = 2, Name = "pepsi", Category = "drinks", Value = 1.0, Quantity = 12},
-                new Product() {Id = 3, Name = "coffee", Category = "drinks", Value = 0.8, Quantity = 24},
-                new Product() {Id = 4, Name = "lion", Category = "beverages", Value = 1.0, Quantity = 220}
+                new Product() {Id = 1, Name = "green tea", Category = Cat.Drinks, Value = 1.2, Quantity = 112, PhotoPath = "green_tea.jpg"},
+                new Product() {Id = 2, Name = "pepsi", Category = Cat.Drinks, Value = 1.0, Quantity = 12, PhotoPath = "pepsi.jpg"},
+                new Product() {Id = 3, Name = "coffee", Category = Cat.Drinks, Value = 0.8, Quantity = 24, PhotoPath = "coffee.png"},
+                new Product() {Id = 4, Name = "lion", Category = Cat.Beverages, Value = 1.0, Quantity = 220, PhotoPath = "lion_bar.jpg"}
             };
         }
 

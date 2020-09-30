@@ -10,25 +10,24 @@
 
     @foreach (var product in Model)
     {
-        var photoPath = "~/images/" + (product.PhotoPath ?? "no_product.png");
+        var photoPath = "~/images/" + (product.PhotoPath);
 
 
     <div class="card" style="  min-width:10rem;max-width:30.5%">
-        <div class="card-header">
+        <div class="card-header text-center">
             <h3>  @product.Name </h3>
         </div>
         
-        <div class="card-img-top">
-            <img src="@photoPath"  asp-append-version="true"/>
+        <img class="card-img-top photoAvatar" style="padding:10px;" src="@photoPath"  asp-append-version="true"/>
+
+
+
+        <div class="card-footer text-center">
+            <a asp-controller="home" asp-action="details" asp-route-id="@product.Id" class="btn btn-primary">View</a>
+            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="#"class="btn btn-danger">Delete</a>
         </div>
 
-        <div class="card-body">
-            <div class="card-footer">
-                <a asp-controller="home" asp-action="details" asp-route-id="@product.Id" class="btn btn-primary">View</a>
-                <a class="btn btn-primary">Edit</a>
-                <a class="btn btn-danger">Delete</a>
-            </div>
-        </div>
 
 
 
