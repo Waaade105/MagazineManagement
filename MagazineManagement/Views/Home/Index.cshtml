@@ -1,37 +1,35 @@
-﻿@model IEnumerable<Product>
-
-@{
-    ViewData["Title"] = "Product List";
-}
+﻿@model IEnumerable<MagazineManagement.Models.Product>
 
 
-<div class="card-deck">
-
-
-    @foreach (var product in Model)
-    {
-        var photoPath = "~/images/" + (product.PhotoPath);
-
-
-    <div class="card" style="  min-width:10rem;max-width:30.5%">
-        <div class="card-header text-center">
-            <h3>  @product.Name </h3>
-        </div>
-        
-        <img class="card-img-top photoAvatar" style="padding:10px;" src="@photoPath"  asp-append-version="true"/>
-
-
-
-        <div class="card-footer text-center">
-            <a asp-controller="home" asp-action="details" asp-route-id="@product.Id" class="btn btn-primary">View</a>
-            <a href="#" class="btn btn-primary">Edit</a>
-            <a href="#"class="btn btn-danger">Delete</a>
-        </div>
-
-
-
-
-    </div>
+    @{
+        ViewData["Title"] = "Product List";
     }
+    <div style="min-height:1400px; background-color:azure">  @*usun to potem bo to w layout bedzie*@
+        <div class="card-deck">
 
-</div>
+            @foreach (var product in Model)
+            {
+                var photoPath = "~/images/" + (product.PhotoPath);
+
+
+                <div class="card m-3" style=" min-width:16rem;max-width:30.5%">
+                    <div class="card-header text-center">
+                        <h3>  @product.Name </h3>
+                    </div>
+
+                    <img class="card-img-top photoAvatar" style="padding:50px;" src="@photoPath" asp-append-version="true" />
+
+                    <div class="card-footer text-center">
+                        <a style="width:75px" asp-controller="home" asp-action="details" asp-route-id="@product.Id" class="button btn btn-primary m-1">View</a>
+                        <a style="width:75px" href="#" class="button btn btn-primary m-1">Edit</a>
+                        <a style="width:75px" href="#" class="button btn btn-danger m-1">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+
+ 

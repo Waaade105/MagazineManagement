@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MagazineManagement.Models;
+using MagazineManagement.ViewModels;
 
 namespace MagazineManagement.Controllers
 {
@@ -21,9 +22,17 @@ namespace MagazineManagement.Controllers
 
         public ViewResult ProductDetails(int id)
         {
-            Product product = _productRepository.GetProduct(id);
-            return View(product);
+            HomeProdDetailsViewModel homeProdDetailsViewModel = new HomeProdDetailsViewModel()
+            {
+                Product = _productRepository.GetProduct(id),
+                Title = "Product details",
+            };
+            //Product product = _productRepository.GetProduct(id);
+            //return View(product);
+            return View(homeProdDetailsViewModel);
         }
+
+
 
         public IActionResult Index()
         {
@@ -31,6 +40,18 @@ namespace MagazineManagement.Controllers
             var model = _productRepository.GetAllPRoducts();
             return View(model);
         }
+
+        //[HttpGet]
+        //public IActionResult Details(int id)
+        //{
+        //    Product product = _productRepository.GetProduct(id);
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult Details()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {

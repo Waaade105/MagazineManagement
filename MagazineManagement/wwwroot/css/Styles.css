@@ -1,4 +1,8 @@
 ﻿.photoAvatar {
     max-height: 250px;
-    max-width: auto;
+    width: auto;
+}
+
+.button {
+    width:70px;
 }

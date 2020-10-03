@@ -1,20 +1,13 @@
-﻿@model Product
+﻿@*@model MagazineManagement.Models.Product*@
+@model MagazineManagement.ViewModels.HomeProdDetailsViewModel
+ 
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>
-        fsdfdsfdsf
-    </title>
-</head>
-<body>
+
     <div>
-        name = @Model.Name;
-        category = @Model.Category;
-        quantity = @Model.Quantity;
-        cost = @Model.Value;
+        name = @Model.Product.Name;
+        category = @Model.Product.Category;
+        quantity = @Model.Product.Quantity;
+        cost = @Model.Product.Value;
     </div>
 
-
-</body>
-</html>
