@@ -1,35 +1,40 @@
-﻿@model IEnumerable<MagazineManagement.Models.Product>
+﻿@*@model IEnumerable<MagazineManagement.Models.Product>*@
+
+@* w pliku _ViewImports dodaje  "MagazineManagement.Models" dzieki czemu teraz napisac wystarczy*@
+@model IEnumerable<Product>
+
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml"; Nie potrzebujemy tego poniewaz w _ViewStart mamy to dodane
+    ViewBag.Title = "Product List";
+}
 
 
-    @{
-        ViewData["Title"] = "Product List";
-    }
-    <div style="min-height:1400px; background-color:azure">  @*usun to potem bo to w layout bedzie*@
-        <div class="card-deck">
+<div style="min-height:1400px; background-color:azure">
+    @*usun to potem bo to w layout bedzie*@
+    <div class="card-deck">
 
-            @foreach (var product in Model)
-            {
-                var photoPath = "~/images/" + (product.PhotoPath);
+        @foreach (var product in Model)
+        {
+            var photoPath = "~/images/" + (product.PhotoPath);
 
 
-                <div class="card m-3" style=" min-width:16rem;max-width:30.5%">
-                    <div class="card-header text-center">
-                        <h3>  @product.Name </h3>
-                    </div>
-
-                    <img class="card-img-top photoAvatar" style="padding:50px;" src="@photoPath" asp-append-version="true" />
-
-                    <div class="card-footer text-center">
-                        <a style="width:75px" asp-controller="home" asp-action="details" asp-route-id="@product.Id" class="button btn btn-primary m-1">View</a>
-                        <a style="width:75px" href="#" class="button btn btn-primary m-1">Edit</a>
-                        <a style="width:75px" href="#" class="button btn btn-danger m-1">Delete</a>
-                    </div>
+            <div class="card m-3" style=" min-width:16rem;max-width:30.5%">
+                <div class="card-header text-center">
+                    <h3>  @product.Name </h3>
                 </div>
-            }
-        </div>
+
+                <img class="card-img-top photoAvatar" style="padding:50px;" src="@photoPath" asp-append-version="true" />
+
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="ProductDetails" asp-route-id="@product.Id" class="button btn btn-primary m-1">View</a>
+                    <a href="#" class="button btn btn-primary m-1">Edit</a>
+                    <a href="#" class="button btn btn-danger m-1">Delete</a>
+                </div>
+            </div>
+        }
     </div>
+</div>
 
 
 
 
- 

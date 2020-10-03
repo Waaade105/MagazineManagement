@@ -20,11 +20,18 @@ namespace MagazineManagement.Controllers
             _productRepository = productRepository;
         }
 
-        public ViewResult ProductDetails(int id)
+
+        public IActionResult Index()
+        {
+            //return _productRepository.GetProduct(1).Name;
+            var model = _productRepository.GetAllPRoducts();
+            return View(model);
+        }
+        public ViewResult ProductDetails(int? id)
         {
             HomeProdDetailsViewModel homeProdDetailsViewModel = new HomeProdDetailsViewModel()
             {
-                Product = _productRepository.GetProduct(id),
+                Product = _productRepository.GetProduct(id ?? 1),
                 Title = "Product details",
             };
             //Product product = _productRepository.GetProduct(id);
@@ -34,12 +41,6 @@ namespace MagazineManagement.Controllers
 
 
 
-        public IActionResult Index()
-        {
-            //return _productRepository.GetProduct(1).Name;
-            var model = _productRepository.GetAllPRoducts();
-            return View(model);
-        }
 
         //[HttpGet]
         //public IActionResult Details(int id)

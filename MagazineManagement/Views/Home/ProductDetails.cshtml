@@ -1,13 +1,65 @@
 ﻿@*@model MagazineManagement.Models.Product*@
-@model MagazineManagement.ViewModels.HomeProdDetailsViewModel
- 
+
+@* stworzylem plik ViewModel w celu przechowywania wartosci jakie chce przekazywac do wydoku stad zmiana modelu na*@
+@*@model MagazineManagement.ViewModels.HomeProdDetailsViewModel*@
+
+@* w pliku _ViewImports dodaje  "MagazineManagement.ViewModels" dzieki czemu teraz napisac wystarczy*@
+@model HomeProdDetailsViewModel
 
 
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";    Nie potrzebujemy tego poniewaz w _ViewStart mamy to dodane
+    ViewBag.Title = "Product Details";
+}
 
-    <div>
-        name = @Model.Product.Name;
-        category = @Model.Product.Category;
-        quantity = @Model.Product.Quantity;
-        cost = @Model.Product.Value;
+
+@*<div>
+    name = @Model.Product.Name;
+    category = @Model.Product.Category;
+    quantity = @Model.Product.Quantity;
+    cost = @Model.Product.Value;
+</div>*@
+
+@{ 
+    var photoPath = "~/images" + (Model.Product.PhotoPath ?? "no_product.png");
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>@Model.Product.Name</h2>
+                </div>
+                <div class="card-body text-center">
+                    <img class="card-img-top img-fluid photoAvatar" src="~/images/no_product.png" asp-append-version="true" />
+
+                    <h3>ID : @Model.Product.Id</h3>
+                    <h3>Category : @Model.Product.Category</h3>
+                    <h3>Quantity : @Model.Product.Quantity</h3>
+
+                    @*czemu nie moge tego napisac tak*@ 
+
+                    @{ 
+
+                        Model.Product.Category
+                        var sth = Model.Product.Id;
+                    }
+
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+
+                </div>
+
+            </div>
+        </div>
     </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/SomeScript.js"></script>
+}
 
