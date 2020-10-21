@@ -39,6 +39,21 @@ namespace MagazineManagement.Controllers
             return View(homeProdDetailsViewModel);
         }
 
+        [HttpGet]
+        public ViewResult CreateProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateProduct(Product product)   /*wczesniej RedirectToActionResult ale nie pasowalo do typu zwracanego View() ktory jest ViewResult*/
+        {                                           /*  RedirectToAction i ViewResult implementuja IActionResult*/
+            if (ModelState.IsValid)
+            { 
+                Product newProduct  = _productRepository.AddProduct(product);
+                return RedirectToAction("ProductDetails", new { id = newProduct.Id });
+            }
+            return View();
+        }
 
 
 

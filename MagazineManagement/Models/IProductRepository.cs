@@ -10,6 +10,7 @@ namespace MagazineManagement.Models
         Product GetProduct(int id);
         Product GetProduct(string name);
         IEnumerable <Product> GetAllPRoducts();
+        Product AddProduct(Product product);
 
     }
 }

@@ -36,5 +36,13 @@ namespace MagazineManagement.Models
         {
             return _productsList;
         }
+
+        public Product AddProduct(Product product)
+        {
+            product.Id = _productsList.Max(p => p.Id) + 1;
+            _productsList.Add(product);
+            //Product newProduct = _productsList.FirstOrDefault
+            return product;
+        }
     }
 }

@@ -10,6 +10,7 @@
 @{
     //Layout = "~/Views/Shared/_Layout.cshtml";    Nie potrzebujemy tego poniewaz w _ViewStart mamy to dodane
     ViewBag.Title = "Product Details";
+
 }
 
 
@@ -37,14 +38,11 @@
                     <h3>ID : @Model.Product.Id</h3>
                     <h3>Category : @Model.Product.Category</h3>
                     <h3>Quantity : @Model.Product.Quantity</h3>
-
-                    @*czemu nie moge tego napisac tak*@ 
-
-                    @{ 
-
-                        Model.Product.Category
-                        var sth = Model.Product.Id;
-                    }
+                    @*czemu nie moge tego napisac tak*@
+                    @*@{
+                     Model.Product.Category
+                     var sth = Model.Product.Id;
+                    }*@
 
                 </div>
                 <div class="card-footer text-center">

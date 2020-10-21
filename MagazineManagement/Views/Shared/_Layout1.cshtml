@@ -4,15 +4,45 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/Styles.css" rel="stylesheet" />
 </head>
+
 <body>
-    <div>
-        @RenderBody()
+    <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-dark  bg-dark">
+            <a class="navbar-brand"asp-controller="home" asp-action="index" >
+                <img src="~/images/brand.png"   width="40" height="40"/>
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="home" asp-action="CreateProduct" class="nav-link"> Create</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
+
+        <div>
+            @RenderBody()
+        </div>
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", required: true);
+        }
     </div>
-    
-    @if (IsSectionDefined("Scripts"))
-    {
-        @RenderSection("Scripts", required: true);
-    }
 </body>
 </html>
