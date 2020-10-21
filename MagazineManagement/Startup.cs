@@ -29,9 +29,10 @@ namespace MagazineManagement
         {
             services.AddMvc();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddSingleton<IProductRepository, MockProductRepository>();
-             
+            //services.AddSingleton<IProductRepository, MockProductRepository>();
+            
             services.AddDbContextPool<ProductDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductDBConn")));
+            services.AddScoped<IProductRepository, SQLProductRepository>();
             services.AddEntityFrameworkSqlServer();
         }
 

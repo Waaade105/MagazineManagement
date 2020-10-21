@@ -11,6 +11,9 @@ namespace MagazineManagement.Models
         Product GetProduct(string name);
         IEnumerable <Product> GetAllPRoducts();
         Product AddProduct(Product product);
+        Product UpdateProduct(Product productToBeUpdated);
+        Product deleteProduct(int id);
+
 
     }
 }

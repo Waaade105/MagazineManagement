@@ -44,5 +44,28 @@ namespace MagazineManagement.Models
             //Product newProduct = _productsList.FirstOrDefault
             return product;
         }
+
+        public Product UpdateProduct(Product productToBeUpdated)
+        {
+            Product product = _productsList.FirstOrDefault(p => p.Id == productToBeUpdated.Id); // 
+            if (product != null)
+            {
+                product.Name = productToBeUpdated.Name;
+                product.Quantity = productToBeUpdated.Quantity;
+                product.Category = productToBeUpdated.Category;
+                product.Value = productToBeUpdated.Value;
+            }
+            return product;
+        }
+
+        public Product deleteProduct(int id)
+        {
+            Product productDoBeDeleted = _productsList.FirstOrDefault(p => p.Id == id); // 
+            if(productDoBeDeleted != null)
+            {
+                _productsList.Remove(productDoBeDeleted);
+            }
+            return productDoBeDeleted;
+        }
     }
 }
